@@ -104,11 +104,12 @@ def finetune(args):
 
         # Count eval count for wandb
         if tune_config.val_set_size > 0:
-            eval_count = 10
-            eval_steps = max(
-                tune_config.logging_steps,
-                (len(data.train_data) + len(data.val_data)) // (eval_count * tune_config.mbatch_size)
-            )
+            # eval_count = 10
+            # eval_steps = max(
+            #     tune_config.logging_steps,
+            #     (len(data.train_data) + len(data.val_data)) // (eval_count * tune_config.mbatch_size)
+            # )
+            eval_steps = 2000
             logger.info(f"Run eval every {eval_steps} steps")
         else:
             eval_steps = 0
@@ -152,7 +153,12 @@ def finetune(args):
             transformers.logging.set_verbosity_info()
 
         # Run Trainer
-        with wandb.init(project="alpaca_lora_4bit") as run:
+        with wandb.init(
+          project="CAUSAL_LM_Fineune_lora_4bit",
+          name='finetune-falcon-7b-instruct-4bit-2560-input-context-on-wizard_vicuna_70k_processed',
+          id='run-falcon-7b-instruct-4bit-2560-input-2023-06-03',
+          resume='auto',
+          ) as run:
             if tune_config.resume_checkpoint:
                 logger.info('Resuming from {} ...'.format(tune_config.resume_checkpoint))
                 state_dict_peft = torch.load(os.path.join(tune_config.resume_checkpoint, 'pytorch_model.bin'), map_location='cpu')

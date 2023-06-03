@@ -4,7 +4,7 @@ class FALCON7B4bitConfig:
     hf_tokenizer_config = "TheBloke/falcon-7b-instruct-GPTQ"
     bits = 4
     groupsize = 64
-    max_seq_len = 2048
+    max_seq_len = 2048*2
     device_map = "auto"
 
 
@@ -14,7 +14,7 @@ class FALCON40B4bitConfig:
     hf_tokenizer_config = "TheBloke/falcon-40b-instruct-GPTQ"
     bits = 4
     groupsize = -1
-    max_seq_len = 2048
+    max_seq_len = 2048*2
     device_map = "auto"
 
 
@@ -24,7 +24,7 @@ class FALCON7B8bitConfig:
     hf_tokenizer_config = "tiiuae/falcon-7b"
     bits = 8
     groupsize = None
-    max_seq_len = 2048
+    max_seq_len = 2048*2
     device_map = "auto"
 
 
@@ -34,7 +34,7 @@ class FALCON7BInstruct8bitConfig:
     hf_tokenizer_config = "tiiuae/falcon-7b-instruct"
     bits = 8
     groupsize = None
-    max_seq_len = 2048
+    max_seq_len = 2048*2
     device_map = "auto"
 
 
@@ -44,7 +44,7 @@ class FALCON7BRW8bitConfig:
     hf_tokenizer_config = "tiiuae/falcon-rw-7b"
     bits = 8
     groupsize = None
-    max_seq_len = 2048
+    max_seq_len = 2048*2
     device_map = "auto"
 
 
@@ -54,7 +54,7 @@ class FALCON1BRW8bitConfig:
     hf_tokenizer_config = "tiiuae/falcon-rw-1b"
     bits = 8
     groupsize = None
-    max_seq_len = 2048
+    max_seq_len = 2048*2
     device_map = "auto"
 
 
@@ -64,7 +64,7 @@ class FALCON40B8bitConfig:
     hf_tokenizer_config = "tiiuae/falcon-40b"
     bits = 8
     groupsize = None
-    max_seq_len = 2048
+    max_seq_len = 2048*2
     device_map = "auto"
 
 
@@ -74,5 +74,5 @@ class FALCON40BInstruct8bitConfig:
     hf_tokenizer_config = "tiiuae/falcon-7b-instruct"
     bits = 8
     groupsize = None
-    max_seq_len = 2048
+    max_seq_len = 2048*2
     device_map = "auto"
